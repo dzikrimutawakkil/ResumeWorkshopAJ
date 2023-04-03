@@ -33,7 +33,7 @@ File konfigurasi DNS disimpan di direktori /etc/bind. File konfigurasi utama ada
 
 ## Caching Name Server<br>
 Konfigurasi default bertindak sebagai caching server. Cukup hapus komentar dan edit bagian forwarders di **/etc/bind/named.conf.** untuk mengatur alamat IP server DNS ISP Anda.<br>
-![](konjar/named.conf.options.png)<br><br>
+![](https://github.com/ratrimanik/Workshop_Administrasi_Jaringan/blob/main/Minggu_6/konjar/named.conf.options.png)<br><br>
 Untuk mengaktifkan konfigurasi baru, mulai ulang server DNS. Dari prompt terminal dengan perintah berikut:<br>
 
 **sudo systemctl restart bind9.service**<br><br>
