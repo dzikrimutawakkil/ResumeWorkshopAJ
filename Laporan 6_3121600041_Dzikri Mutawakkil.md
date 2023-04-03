@@ -41,31 +41,31 @@ Untuk mengaktifkan konfigurasi baru, mulai ulang server DNS. Dari prompt termina
 ## Instalasi
 Untuk menginstall BIND9, pada terminal jalankan perintah berikut:<br>
 **sudo apt install bind9**<br>
-![](konjar/Install_Bind9.png)<br><br>
+![](https://github.com/ratrimanik/Workshop_Administrasi_Jaringan/blob/main/Minggu_6/konjar/Install_Bind9.png)<br><br>
 Selanjutnya gunakan perintah<br>
 **sudo apt install dnsutils**<br>
-![](konjar/Install_DNS_Utils.png)<br><br>
+![](https://github.com/ratrimanik/Workshop_Administrasi_Jaringan/blob/main/Minggu_6/konjar/Install_DNS_Utils.png)<br><br>
 
 ## Forward Zone File (Domain ke IP)<br>
 Untuk menambahkan zona DNS ke BIND9 dan mengubah BIND9 menjadi server Primer, gunakan perintah <br>
 **/etc/bind/named.conf.local**<br>
-![](konjar/named.conf.local.png)<br><br>
+![](https://github.com/ratrimanik/Workshop_Administrasi_Jaringan/blob/main/Minggu_6/konjar/named.conf.local.png)<br><br>
 Gunakan zone file yang sudah ada sebagai template untuk membuat berkas /etc/bind/db.example.com dengan menggunakan perintah <br>
 **sudo cp /etc/bind/db.local /etc/bind/db.example.com**<br>
 Forward Zone File (Setelah dilakukan pengeditan)
-![](konjar/ubahdb.domain.png)<br><br>
+![](https://github.com/ratrimanik/Workshop_Administrasi_Jaringan/blob/main/Minggu_6/konjar/ubahdb.domain.png)<br><br>
 
 ## Reverse Zone File (IP ke Domain)
 edit /etc/bind/db.192 dengan mengubah opsi yang sama dengan menjalankan perintah <br>
 **/etc/bind/db.example.com**<br>
-![](konjar/ubahdb.ip.png)<br><br>
+![](https://github.com/ratrimanik/Workshop_Administrasi_Jaringan/blob/main/Minggu_6/konjar/ubahdb.ip.png)<br><br>
 Setelah membuat Reverse Zone File, mulai ulang BIND9:<br>
 **sudo systemctl restart bind9.service**<br><br>
 
 ## Testing
 Langkah pertama dalam menguji BIND9 adalah menambahkan Alamat IP nameserver ke host resolver. Nameserver utama harus dikonfigurasi seperti halnya host lain untuk memeriksa ulang berbagai hal. Buka DNS client untuk mengetahui detail tentang cara menambahkan alamat nameserver ke network client. Edit nameserver dan parameter untuk domain pada file /etc/resolv.conf<br>
-![](konjar/testing.png)<br><br>
+![](https://github.com/ratrimanik/Workshop_Administrasi_Jaringan/blob/main/Minggu_6/konjar/testing.png)<br><br>
 Terdapat banyak cara untuk melakukan testing, pada kali ini kelompok kami menggunakan metode ping untuk mengetahui apakah konfigurasi sudah berhasil atau belum. Command yang diperlukan:<br>
 **ping www.example.com**<br>
-![](konjar/Cobaping.png)<br><br>
+![](https://github.com/ratrimanik/Workshop_Administrasi_Jaringan/blob/main/Minggu_6/konjar/Cobaping.png)<br><br>
 
